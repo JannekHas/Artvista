@@ -1,0 +1,33 @@
+/*TODO: Das ist hier nur für das Beispiel mit dem Burger-Menu drin (siehe index.html in handy vs pc format)*/
+
+/* Standard: Menü sichtbar auf Desktop */
+#main-menu {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Burger-Button standardmäßig verstecken */
+#menu-toggle {
+    display: none;
+}
+
+/* Mobile: Burger-Button zeigen, Menü ausblenden */
+@media (max-width: 768px) {
+    #main-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #main-menu.visible {
+        display: flex;
+    }
+
+    #menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
