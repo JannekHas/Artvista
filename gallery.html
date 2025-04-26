@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARTVISTA – Galerie</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="cafe.html">Café</a>
+        <a href="tickets.html">Tickets</a>
+        <a href="contact.html">Kontakt</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Unsere Kunstwerke</h1>
+
+    <!-- Kategorie-Filter -->
+    <div class="filter">
+        <button class="filter-button" onclick="filterGallery('Malerei')">Malerei</button>
+        <button class="filter-button" onclick="filterGallery('Skulptur')">Skulptur</button>
+        <button class="filter-button" onclick="filterGallery('Fotografie')">Fotografie</button>
+        <button class="filter-button" onclick="filterGallery('Mixed Media')">Mixed Media</button>
+    </div>
+
+    <!-- Galerie -->
+    <div class="gallery">
+        <!-- Kunstwerke werden hier durch JS hinzugefügt -->
+        <div class="artwork" data-category="Malerei">
+            <img src="bilder/gemaelde1.jpg" alt="Gemälde 1">
+            <p>Gemälde 1 - Künstler 1</p>
+            <p>Preis: 150 €</p>
+        </div>
+        <div class="artwork" data-category="Skulptur">
+            <img src="bilder/skulptur1.jpg" alt="Skulptur 1">
+            <p>Skulptur 1 - Künstler 2</p>
+            <p>Preis: 300 €</p>
+        </div>
+        <div class="artwork" data-category="Fotografie">
+            <img src="bilder/fotografie1.jpg" alt="Fotografie 1">
+            <p>Fotografie 1 - Künstler 3</p>
+            <p>Preis: 200 €</p>
+        </div>
+        <div class="artwork" data-category="Mixed Media">
+            <img src="bilder/mixedmedia1.jpg" alt="Mixed Media 1">
+            <p>Mixed Media 1 - Künstler 4</p>
+            <p>Preis: 250 €</p>
+        </div>
+        <!-- Weitere Kunstwerke können hier ergänzt werden -->
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 ARTVISTA | <a href="impressum.html">Impressum</a></p>
+</footer>
+
+</body>
+</html>

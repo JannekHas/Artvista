@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARTVISTA – Tickets</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="cafe.html">Café</a>
+        <a href="tickets.html">Tickets</a>
+        <a href="contact.html">Kontakt</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Tickets für ARTVISTA</h1>
+
+    <section class="ticket-options">
+        <h2>Ticketoptionen</h2>
+
+        <div class="ticket-option">
+            <h3>Eintritt nur Ausstellung</h3>
+            <p><strong>Preis:</strong> 12 €</p>
+            <p>Besuche die Ausstellung und genieße die Kunstwerke in einer ruhigen, kreativen Atmosphäre.</p>
+            <button onclick="buyTicket('Eintritt nur Ausstellung')">Jetzt kaufen</button>
+        </div>
+
+        <div class="ticket-option">
+            <h3>Eintritt Ausstellung + Atelier</h3>
+            <p><strong>Preis:</strong> 30 €</p>
+            <p>Erlebe die Ausstellung und werde selbst kreativ in einem unserer Atelier-Workshops!</p>
+            <button onclick="buyTicket('Eintritt Ausstellung + Atelier')">Jetzt kaufen</button>
+        </div>
+
+        <div class="ticket-option">
+            <h3>Wochenpass</h3>
+            <p><strong>Preis:</strong> 50 €</p>
+            <p>Besuche die Ausstellung so oft du möchtest und nehme an mehreren Workshops während der Woche teil.</p>
+            <button onclick="buyTicket('Wochenpass')">Jetzt kaufen</button>
+        </div>
+    </section>
+
+    <section class="payment-methods">
+        <h2>Zahlungsmethoden</h2>
+        <p>Wir akzeptieren die folgenden Zahlungsmethoden:</p>
+        <ul>
+            <li>Kreditkarte</li>
+            <li>PayPal</li>
+            <li>Banküberweisung</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 ARTVISTA | <a href="impressum.html">Impressum</a></p>
+</footer>
+
+</body>
+</html>
