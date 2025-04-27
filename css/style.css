@@ -1,4 +1,28 @@
-/*TODO: Das ist hier nur für das Beispiel mit dem Burger-Menu drin (siehe index.html in handy vs pc format)*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body {
+    height: 100%;
+    width: 100%;
+    font-family: Helvetica, sans-serif;
+}
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+header nav {
+
+}
+
+
+
+#hero {
+    justify-items: center;
+}
 
 /* Standard: Menü sichtbar auf Desktop */
 #main-menu {
