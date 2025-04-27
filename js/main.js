@@ -38,31 +38,48 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.scroll-fade').forEach((el) => observer.observe(el));
 
-// Dark/Light Mode
+// Dark/Light Mode Toggle mit dynamischem Icon
 const toggleButton = document.createElement('button');
-toggleButton.innerText = '🌙 / ☀️';
-toggleButton.style.position = 'fixed';
-toggleButton.style.bottom = '1rem';
+toggleButton.innerText = '🌙';
+toggleButton.style.position = 'absolute';
+toggleButton.style.top = '1rem';
 toggleButton.style.right = '1rem';
 toggleButton.style.zIndex = '1001';
+toggleButton.style.background = 'none';
+toggleButton.style.border = 'none';
+toggleButton.style.fontSize = '1.5rem';
+toggleButton.style.cursor = 'pointer';
 document.body.appendChild(toggleButton);
 
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
+    updateToggleIcon();
 });
+
+function updateToggleIcon() {
+    if (document.body.classList.contains('dark-mode')) {
+        toggleButton.innerText = '☀️';
+    } else {
+        toggleButton.innerText = '🌙';
+    }
+}
+
+updateToggleIcon();
+
 
 // Countdown bis Ausstellung
 const countdownContainer = document.createElement('div');
 countdownContainer.id = 'countdown';
 countdownContainer.style.position = 'fixed';
-countdownContainer.style.top = '1rem';
-countdownContainer.style.right = '1rem';
-countdownContainer.style.backgroundColor = '#eee';
+countdownContainer.style.bottom = '1rem';
+countdownContainer.style.left = '50%';
+countdownContainer.style.transform = 'translateX(-50%)';
+countdownContainer.style.backgroundColor = '#b6b6b6';
 countdownContainer.style.padding = '0.5rem 1rem';
 countdownContainer.style.borderRadius = '8px';
+countdownContainer.style.zIndex = '1001';
 document.body.appendChild(countdownContainer);
 
-// Ziel-Datum (z.B. 1. Juli 2025)
 const eventDate = new Date('2025-07-01T00:00:00').getTime();
 
 function updateCountdown() {
@@ -75,29 +92,47 @@ function updateCountdown() {
     }
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    countdownContainer.innerText = `Noch ${days} Tage bis ARTVISTA!`;
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Bedingung: weniger als 100 Tage → nur 2-stellig
+    const dayFormat = days < 100 ? String(days).padStart(2, '0') : String(days).padStart(3, '0');
+
+    // Format immer zweistellig (z.B. 05 statt 5)
+    const formatted = `${dayFormat}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    countdownContainer.innerText = `Noch ${formatted} bis ARTVISTA!`;
 }
+
+// Update alle 1 Sekunde
+setInterval(updateCountdown, 1000);
+
+// Beim Start direkt einmal aufrufen
+updateCountdown();
+
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
-
-// Benutzerbegrüßung
-if (!localStorage.getItem('artvistaVisited')) {
-    setTimeout(() => {
-        alert('Willkommen bei ARTVISTA 2025! Viel Spaß beim Entdecken. 🎨');
-        localStorage.setItem('artvistaVisited', 'true');
-    }, 500); // Nach 0,5 Sekunden
-}
 
 // Zurück nach oben Button
 const topButton = document.createElement('button');
 topButton.innerText = '⬆️';
 topButton.style.position = 'fixed';
-topButton.style.bottom = '4rem';
-topButton.style.right = '1rem';
+topButton.style.top = '5rem';
+topButton.style.left = '50%';
+topButton.style.transform = 'translateX(-50%)';
 topButton.style.display = 'none';
-topButton.style.padding = '0.5rem 1rem';
+topButton.style.width = '50px';
+topButton.style.height = '50px';
+topButton.style.padding = '0';
 topButton.style.borderRadius = '50%';
+topButton.style.backgroundColor = '#b6b6b6';
+topButton.style.border = 'none';
+topButton.style.cursor = 'pointer';
+topButton.style.fontSize = '1.5rem';
+topButton.style.alignItems = 'center';
+topButton.style.justifyContent = 'center';
 topButton.style.zIndex = '1001';
 document.body.appendChild(topButton);
 
@@ -107,7 +142,7 @@ topButton.addEventListener('click', () => {
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-        topButton.style.display = 'block';
+        topButton.style.display = 'flex';
     } else {
         topButton.style.display = 'none';
     }
