@@ -38,33 +38,33 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.scroll-fade').forEach((el) => observer.observe(el));
 
-// Dark/Light Mode Toggle mit dynamischem Icon
-const toggleButton = document.createElement('button');
-toggleButton.innerText = '🌙';
-toggleButton.style.position = 'absolute';
-toggleButton.style.top = '1rem';
-toggleButton.style.right = '1rem';
-toggleButton.style.zIndex = '1001';
-toggleButton.style.background = 'none';
-toggleButton.style.border = 'none';
-toggleButton.style.fontSize = '1.5rem';
-toggleButton.style.cursor = 'pointer';
-document.body.appendChild(toggleButton);
-
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    updateToggleIcon();
-});
-
-function updateToggleIcon() {
-    if (document.body.classList.contains('dark-mode')) {
-        toggleButton.innerText = '☀️';
-    } else {
-        toggleButton.innerText = '🌙';
-    }
-}
-
-updateToggleIcon();
+// // Dark/Light Mode Toggle mit dynamischem Icon
+// const toggleButton = document.createElement('button');
+// toggleButton.innerText = '🌙';
+// toggleButton.style.position = 'absolute';
+// toggleButton.style.top = '1rem';
+// toggleButton.style.right = '1rem';
+// toggleButton.style.zIndex = '1001';
+// toggleButton.style.background = 'none';
+// toggleButton.style.border = 'none';
+// toggleButton.style.fontSize = '1.5rem';
+// toggleButton.style.cursor = 'pointer';
+// document.body.appendChild(toggleButton);
+//
+// toggleButton.addEventListener('click', () => {
+//     document.body.classList.toggle('dark-mode');
+//     updateToggleIcon();
+// });
+//
+// function updateToggleIcon() {
+//     if (document.body.classList.contains('dark-mode')) {
+//         toggleButton.innerText = '☀️';
+//     } else {
+//         toggleButton.innerText = '🌙';
+//     }
+// }
+//
+// updateToggleIcon();
 
 
 // Countdown bis Ausstellung
